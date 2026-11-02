@@ -179,11 +179,8 @@ ecu-can-validation-bench/
     └── test_virtual_can_bus.cpp
 ```
 
-## 10. Formulation CV exacte
 
-**Banc logiciel de validation des communications ECU/CAN — C++17, CMake, tests automatisés :** développé un simulateur CAN/ECU autonome vérifiant les identifiants, le DLC et les plages de signaux ; testé le rejet de trames invalides, la journalisation des diagnostics et le passage en état de repli simulé à travers une suite de tests automatisés. *Simulation logicielle, sans connexion à un véhicule ni à un bus CAN physique.*
-
-## 11. Lancement en une commande
+## 10. Lancement en une commande
 
 Linux / macOS :
 
@@ -199,7 +196,7 @@ Windows PowerShell :
 
 Le dépôt contient également un workflow GitHub Actions dans `.github/workflows/ci.yml` : il configure CMake, compile le projet et exécute CTest à chaque push ou pull request.
 
-## 12. Limites techniques à annoncer
+## 11. Limites techniques à annoncer
 
 - Le bus est une file FIFO idéalisée en mémoire ; l'arbitrage, le bit timing, les ACK, les erreurs de couche physique et la charge électrique du bus ne sont pas modélisés.
 - Le profil de signaux et les identifiants CAN sont fictifs et propres à la démonstration.
