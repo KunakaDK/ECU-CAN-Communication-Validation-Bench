@@ -1,0 +1,26 @@
+ECU / CAN Validation Bench — software-only demonstration
+========================================================
+
+Simulation summary
+------------------
+Frames transmitted : 6
+Frames dispatched  : 6
+Accepted frames    : 3
+Rejected frames    : 2
+Ignored in safe state: 1
+ECU state          : SAFE_STATE
+Last accepted speed: 87.5 km/h
+Coolant temperature: 92.0 C
+Pedal position     : 32.0 %
+
+Event log
+---------
+[  100 ms] FRAME_ACCEPTED       VEHICLE_SPEED=87.5 | Vehicle-speed signal is valid
+[  110 ms] FRAME_ACCEPTED       COOLANT_TEMPERATURE=92 | Coolant-temperature signal is valid
+[  120 ms] FRAME_ACCEPTED       ACCELERATOR_PEDAL=32 | Accelerator-pedal signal is valid
+[  130 ms] FRAME_REJECTED       UNKNOWN_CAN_ID: CAN identifier 0x555 is not present in the simulator signal map | ID=0x555 DLC=1 DATA=2A
+[  140 ms] FRAME_REJECTED       SIGNAL_OUT_OF_RANGE: Decoded accelerator-pedal value is outside the configured 0-100% test range | ID=0x102 DLC=1 DATA=96
+[  140 ms] SAFE_STATE_ENTERED   Safety-relevant validation failure; operational processing inhibited. SIGNAL_OUT_OF_RANGE | ID=0x102 DLC=1 DATA=96
+[  150 ms] FRAME_IGNORED        Frame ignored because the simulated ECU remains in SAFE_STATE: ID=0x100 DLC=2 DATA=00 64
+
+Note: all frames and ECU behaviour above are simulated in-process.
